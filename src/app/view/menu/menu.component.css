@@ -1,3 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
 .list-menu li a i{
     display: block;
+    color: white;
+    font-size: 2rem;
+}
+.list-menu li a {
+    color: white;
+    transition: all ease 1s;
+}
+.list-menu li a:hover {
+    text-decoration: none;
+}
+.list-menu li{
+    padding: 1rem 2rem;
+    border-bottom: 3px solid transparent;
+}
+.list-menu li:hover, .list-menu li:active, .list-menu li:focus {
+    background-color: #00BCD4;
+    border-bottom: 3px solid #03A9F4;
+}
+.list-menu li, .list-menu{
+    display: inline-block;
+}
+
+.logo-main img{
+    height: 100px;
 }

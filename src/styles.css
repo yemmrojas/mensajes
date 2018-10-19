@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+.cl-darkprimary{
+    color: #0097A7;
+}
+.bgc-darkprimary{
+    background-color: #0097A7;
+}
+.cl-lightprimary{
+    color: #B2EBF2;
+}
+.bgc-lightprimary{
+    background-color: #B2EBF2;
+}
+.cl-primary{
+    color: #00BCD4;
+}
+.cl-accent{
+    color: #03A9F4;
+}
+.cl-white{
+    color: white;
+}
+.cl-black{
+    color: #212121;
+
+}
+.cl-gray{
+    color: #757575;
+}
+.cl-lightgray{
+    color: #BDBDBD;
+}
+.div-100{
+    width: 100%;
+    display: block;
+}
