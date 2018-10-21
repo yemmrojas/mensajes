@@ -1,3 +1,27 @@
-<p>
-  inicio works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 pt-5">
+      <div class="buscador">
+        <div class="form-group pb-3">
+          <input type="text" class="form-control" placeholder="Buscar amigo" [(ngModel)]="buscar"/>
+        </div>
+      </div>
+      <div class="lista-amigos">
+        <ul class="list-inline usrFriend">
+          <li *ngFor="let amigo of amigos | search: buscar" class="pt-3 pb-3">
+            <a routerLink="/chat/{{amigo.uid}}">
+              <img src="/assets/images/avatar.jpg" alt="">
+              {{amigo.name}} {{amigo.apellido}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8 pt-5">
+      <div class="titulo text-center cl-gray">
+          <h2>Notificaciones Y Noticias</h2>
+      </div>
+      
+    </div>
+  </div>
+</div>

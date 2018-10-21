@@ -1,0 +1,16 @@
+.usrFriend li a img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+}
+.usrFriend li{
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.usrFriend li a{
+    font-size: 1.2rem;
+    color: #757575
+}
+.usrFriend li a:hover{
+    text-decoration: none;
+}
