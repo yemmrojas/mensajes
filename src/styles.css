@@ -33,3 +33,12 @@
     width: 100%;
     display: block;
 }
+.pt-5{
+    padding-top: 5rem;
+}
+.pt-8{
+    padding-top: 8rem;
+}
+.pt-10{
+    padding-top: 10rem;
+}
