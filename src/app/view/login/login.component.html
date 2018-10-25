@@ -1,7 +1,7 @@
 <div class="login">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-4 pt-10">
+      <div class="col-xs-12 col-md-4 pt-5">
         <div class="logo-login text-center">
           <img src="/assets/images/logoTalk.png" class="img-fluid">
         </div>
@@ -16,13 +16,14 @@
             <input type="password" placeholder="Contraseña" id="pass" class="form-control"/>
           </div>
           <div class="form-group">
-              <input type="text" placeholder="Ingrese un nombre" id="pass" class="form-control"/>
+              <input *ngIf="operation == 'register'" type="text" placeholder="Ingrese un nombre" id="name" class="form-control"/>
             </div>
             <div class="form-group">
-                <input type="submit" value="Entrar" id="btn-entrar" class="form-control bgc-darkprimary cl-white"/>
+                <input *ngIf="operation == 'login'" type="submit" value="Entrar" id="btn-entrar" class="form-control bgc-darkprimary cl-white"/>
+                <input *ngIf="operation == 'register'" type="submit" value="Registrarme" id="btn-register" class="form-control bgc-darkprimary cl-white"/>
               </div>
-              <p class="cl-white text-center">¿No tienes una cuenta? <span class=""><b>Creela aquí</b></span></p>
-              <p class="cl-white text-center">¿Ya tienes una cuenta? <span class=""><b>Inicia Sesión</b></span></p>
+              <p *ngIf="operation == 'login'" class="cl-white text-center paraf-login">¿No tienes una cuenta? <span (click)="operation = 'register'"><b>Creela aquí</b></span></p>
+              <p *ngIf="operation == 'register'" class="cl-white text-center paraf-login">¿Ya tienes una cuenta? <span (click)="operation = 'login'"><b>Inicia Sesión</b></span></p>
         </div>
       </div>
     </div>

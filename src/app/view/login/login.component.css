@@ -8,3 +8,9 @@
 .logo-login img{
     height: 200px;
 }
+.paraf-login span{
+    cursor: pointer;
+}
+input[type="submit"]{
+    cursor: pointer;
+}
