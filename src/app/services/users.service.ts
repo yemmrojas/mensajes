@@ -1,44 +1,25 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  amigos: User[];
-  amigo: User;
-  constructor() { 
-    let myuser: User = {
-      name: 'Yeimer',
-      apellido: 'Rojas',
-      edad: 32,
-      correo: 'yeimerrojasb@hotmail.com',
-      amigo: true,
-      uid: 1
-    }
-    let myuser2: User = {
-      name: 'Natalia',
-      apellido: 'Ramos',
-      edad: 32,
-      correo: 'natar@hotmail.com',
-      amigo: false,
-      uid: 2
-    }
-    let myuser3: User = {
-      name: 'Angela',
-      apellido: 'Ramos',
-      edad: 32,
-      correo: 'ange@hotmail.com',
-      amigo: false,
-      uid: 2
-    }
-    this.amigos = [
-      myuser,
-      myuser2,
-      myuser3
-    ]
+ //ahora vamos a traer los usuarios que tenemos en nuestra base de datos de firebase
+ //creamos un constructor y en el inyectamos el servicio de base de datos firebase
+  constructor(private angularFireDatabase: AngularFireDatabase){}
+  getUsers(){
+    return this.angularFireDatabase.list('/users')
   }
-  getFriends(){
-    return this.amigos;
+  //ademas tambien capturamos el id del usuario
+  getUserId(uid){
+    return this.angularFireDatabase.object('/users/' + uid);
+  }
+  createUsers(user){
+    return this.angularFireDatabase.object('/users/' + user.uid).set(user);
+  }
+  editUsers(user){
+    return this.angularFireDatabase.object('/users/' + user.uid).set(user);
   }
 }

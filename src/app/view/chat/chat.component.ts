@@ -11,7 +11,6 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ChatComponent implements OnInit {
   amigoId: any;
-  amigos: User[];
   amigo: User;
   constructor(private activeRouter: ActivatedRoute, private usersService: UsersService) { 
     //con el sieguiente paramentro recuperamos la url de cada usuario con la importacion del ActivatedRoute
@@ -19,10 +18,10 @@ export class ChatComponent implements OnInit {
     console.log(this.amigoId);
     //aquí llamo el servicio que se creo en la carpeta de servicios para sea usado o inyectado
     //desde cualquier componente
-    this.amigos = this.usersService.getFriends();
-    this.amigo = this.amigos.find((record) => {
-      //para que se recuepren los datos se debe retornar el array de los usuarios asi
-      return record.uid == this.amigoId;
+    this.usersService.getUserId(this.amigoId).valueChanges().subscribe((data: User) =>{
+      this.amigo = data;
+    }, (error) => {
+      console.log(error);
     });
     console.log(this.amigo);
   }
