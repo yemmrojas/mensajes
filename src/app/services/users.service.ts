@@ -22,4 +22,8 @@ export class UsersService {
   editUsers(user){
     return this.angularFireDatabase.object('/users/' + user.uid).set(user);
   }
+  //usamos este metodo para guardar un avatar por usuario 
+  guardarAvatar(avatar, uid){
+    return this.angularFireDatabase.object('/users/' + uid + '/avatar').set(avatar);
+  }
 }

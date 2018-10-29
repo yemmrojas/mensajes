@@ -1,40 +1,52 @@
 <div class="header-perfil bgc-darkprimary pt-2 pb-5">
-  <div class="avatar-img-perfil text-center">
-    <img src="/assets/images/avatar.jpg" alt="">
+  <div *ngIf="user" class="avatar-img-perfil text-center">
+    <img [src]="croppedImage || user.avatar || 'assets/images/avatar.jpg'" alt="">
   </div>
   <div class="btn-subir text-center mt-3">
     <label class="btn-subir-foto bgc-lightprimary cl-darkprimary">
-      <input type="file" />
+      <input type="file"  (change)="fileChangeEvent($event)" />
       <span class="icon-anadir cl-white"></span> Subir foto
     </label>
   </div>
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="1 / 1"
+    [resizeToWidth]="128"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+
+<img  />
 </div>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-ms-12 col-md-6 pt-5 pb-5">
+    <div *ngIf="user" class="col-xs-12 col-ms-12 col-md-6 pt-5 pb-5">
       <h3><span class="icon-usuario"></span> Editar perfil</h3>
       <div class="form-group">
         <label>Nombre</label>
-        <input type="text" class="form-control">
+        <input [(ngModel)]="user.name" type="text" class="form-control">
       </div>
       <div class="form-group">
           <label>Nombre de Usuario</label>
-          <input type="text" class="form-control">
+          <input [(ngModel)]="user.apellido" type="text" class="form-control">
         </div>
         <div class="form-group">
             <label>Correo</label>
-            <input type="email" disabled class="form-control">
+            <input [(ngModel)]="user.email" type="email" disabled class="form-control">
           </div>
           <div class="form-group">
               <label>Estados</label>
-              <select name="status" id="status" class="form-control">
+              <select [(ngModel)]="user.status" name="status" id="status" class="form-control">
                 <option value="online">Conectado</option>
                 <option value="awey">Ausente</option>
                 <option value="busy">Ocupado</option>
                 <option value="apper offile">Desconectado</option>
               </select>
             </div>
-            <span class="btn-subir-foto bgc-darkprimary cl-white">
+            <span (click)="guardarCambios()" class="btn-subir-foto bgc-darkprimary cl-white">
               Guardar cambios
             </span>
     </div>

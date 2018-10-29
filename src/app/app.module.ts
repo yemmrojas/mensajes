@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './view/login/login.component';
@@ -46,7 +47,8 @@ import { from } from 'rxjs';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule,
-    AngularFireDatabaseModule // imports firebase/storage only needed for storage features
+    AngularFireDatabaseModule,
+    ImageCropperModule // imports firebase/storage only needed for storage features
   ],
   providers: [],
   bootstrap: [AppComponent]

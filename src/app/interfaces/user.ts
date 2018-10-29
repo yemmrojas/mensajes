@@ -5,4 +5,5 @@ export interface User{
     correo: string;
     amigo: boolean;
     uid: any;
+    status?: string;
 }
