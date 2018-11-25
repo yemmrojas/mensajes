@@ -1,4 +1,22 @@
-<p>
+
+<div *ngIf="amigo" class="toolbar-amigo bgc-lightprimary" >
+  <img src="{{amigo.avatar}}" alt="" class="avatar_chat">
   {{amigo.name}}
-  
-</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="mensaje">
+        <div class="col-md-1">
+          <div class="emogi">
+            <i class="icon-agregar"></i>
+          </div>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" [(ngModel)]="mensaje" (keyup.enter)="guardarMsm()" name="msm" id="msm" cols="30" rows="5"></textarea>
+        </div>
+        <div class="col-md-1">
+          <i class="icon-mensaje"></i>
+        </div>
+    </div>
+  </div>
+</div>

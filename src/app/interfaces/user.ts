@@ -6,4 +6,5 @@ export interface User{
     amigo: boolean;
     uid: any;
     status?: string;
+    avatar?: string;
 }

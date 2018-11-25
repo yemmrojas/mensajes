@@ -10,7 +10,7 @@
         <ul class="list-inline usrFriend">
           <li *ngFor="let amigo of amigos | search: buscar" class="pt-3 pb-3">
             <a routerLink="/chat/{{amigo.uid}}">
-              <img src="{{amigo.avatar}}" alt="">
+              <img src="{{amigo.avatar || '/assets/images/avatar.jpg'}}" alt="">
               {{amigo.name}}
             </a>
           </li>

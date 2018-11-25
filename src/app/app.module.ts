@@ -21,7 +21,7 @@ import { AuthGuard } from './services/auth.guard';
 import { from } from 'rxjs';
 //es necesario para la utilizacion de las rutas
  const appRutas: Routes = [
-   {path: '', component: InicioComponent},
+   {path: '', component: InicioComponent, canActivate: [AuthGuard]},
    {path: 'inicio', component: InicioComponent, canActivate: [AuthGuard]},
    {path: 'chat/:uid', component: ChatComponent, canActivate: [AuthGuard]},
    {path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard]},
@@ -48,7 +48,7 @@ import { from } from 'rxjs';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    ImageCropperModule // imports firebase/storage only needed for storage features
+    ImageCropperModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
